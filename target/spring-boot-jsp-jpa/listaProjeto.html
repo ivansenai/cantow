@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Lista de projeto</title>
+</head>
+<body>
+	<h2>Lista de projetos</h2>
+	<div th:unless="${#lists.isEmpty(projetos)}">
+		<dl th:each="projeto : ${projetos}">
+			<dt class="bookHeadline">
+				<span th:text="${projeto.idpessoa}">Id Projeto</span> <br /> <span
+					th:text="${projeto.nome}">Nome</span> <br /> <span
+					th:text="${projeto.data_incio}">Incio</span> <br /> <span
+					th:text="${projeto.data_previsao_fim}">Previsão</span> <br /> <span
+					th:text="${projeto.data_fim}">Fim</span> <br /> <span
+					th:text="${projeto.status}">Status</span> <br /> <span
+					th:text="${projeto.orcamento}">Orcamento</span> <br /> <span
+					th:text="${projeto.risco}">Risco</span> <br /> <span
+					th:text="${projeto.idgerente}">Id Gerente</span>
+			</dt>
+		</dl>
+	</div>
+	<div th:if="${#lists.isEmpty(projetos)}">
+		<p>Nenhum projeto cadastrado!</p>
+	</div>
+	<hr />
+	<h3>Adicionar um novo projeto:</h3>
+	<form method="POST">
+		<label for="idprojeto">Id Projeto: </label> <input type="text"
+			name="idprojeto" size="50"></input><br /> <label for="nome">Nome:
+		</label> <input type="text" name="nome" size="50"></input><br /> <label
+			for="data_inicio">Inicio: </label> <input type="text"
+			name="data_inicio" size="50"></input><br /> <label
+			for="data_previsao_fim">Previsao : </label> <input type="text"
+			name="data_previsao_fim" size="50"></input><br /> <label
+			for="data_fim">Inicio: </label> <input type="text" name="data_fim"
+			size="50"></input><br /> <label for="status">Previsao : </label> <input
+			type="text" name="status" size="50"></input><br /> <label
+			for="orcamento">Orcamento: </label> <input type="text"
+			name="orcamento" size="50"></input><br /> <label for="risco">Risco:
+		</label> <input type="text" name="risco" size="50"></input><br /> <label
+			for="idgerente">Id Gerente: </label> <input type="text"
+			name="idgerente" size="50"></input><br /> <br /> <input
+			type="submit" value="Post"></input>
+	</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+  <head>
+  <title>Lista de membro</title>
+  </head>
+  <body>
+        <h2>Lista de membros de um projeto</h2>
+        <div th:unless="${#lists.isEmpty(membros)}">
+              <dl th:each="membro : ${membros}">
+                    <dt class="bookHeadline">
+                          <span th:text="${membro.idpessoa}">Id Pessoa</span> 
+                          <br />
+                          <span th:text="${membro.idprojeto}">Id Projeto</span>    
+                    </dt>
+              </dl>
+        </div>
+        <div th:if="${#lists.isEmpty(membros)}">
+              <p>Nenhum membro cadastrado!</p>
+        </div>
+        <hr />
+        <h3>Adicionar um novo membro a um projeto:</h3>
+        <form method="POST">
+              <label for="idpessoa">Id Pessoa: </label> <input type="text" name="idpessoa" size="50"></input><br />  
+              <label for="idprojeto">Id Projeto: </label> <input type="text" name="idprojeto" size="50"></input><br /> 
+              <br /> 
+              <input type="submit" value="Post"></input>
+        </form>
+  </body>
+  </html>
